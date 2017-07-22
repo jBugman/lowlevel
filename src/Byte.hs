@@ -13,6 +13,9 @@ data Byte = Byte Bit Bit Bit Bit Bit Bit Bit Bit
 zero :: Byte
 zero = Byte O O O O O O O O
 
+one :: Byte
+one = Byte O O O O O O O I
+
 fromList :: [Bit] -> Maybe Byte
 fromList [b7 , b6 , b5 , b4 , b3 , b2 , b1 , b0] = Just (Byte b7 b6 b5 b4 b3 b2 b1 b0)
 fromList _                                       = Nothing

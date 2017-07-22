@@ -1,5 +1,5 @@
 name:                lowlevel
-version:             0.1.2.0-SNAPSHOT
+version:             0.1.3.0-SNAPSHOT
 homepage:            https://github.com/jBugman/lowlevel#readme
 license:             MIT
 license-file:        LICENSE
@@ -17,9 +17,11 @@ library
   default-language:    Haskell2010
   default-extensions:  OverloadedStrings, NoImplicitPrelude
   exposed-modules:     Adder
+                     , Arithmetic
                      , Bit
-                     , Byte
+                     , Byte 
                      , Gate
+                     , Logic
 -- other-modules:    
   build-depends:       base >= 4.7 && < 5
                      , protolude
