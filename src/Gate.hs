@@ -40,7 +40,7 @@ not :: Bit -> Bit
 not a = nand a a
 
 or :: Bit -> Bit -> Bit
-or a b = nand a' b' where
+or a b = nand a' b'  where
     a' = nand a a
     b' = nand b b
 

@@ -2,8 +2,8 @@ module Adder where
 
 import Protolude
 
-import Bit (Bit (I, O))
--- import qualified Gate
+import           Bit  (Bit (I, O))
+import qualified Gate
 
 
 data Output = Output { unCarry :: Bit , unSum :: Bit }
@@ -32,7 +32,14 @@ fullTT I I I = Output I I
 -- Hardware --
 
 half :: Bit -> Bit -> Output
-half _ _ = Output I I
+half a b = Output c s  where
+    c = Gate.and a b
+    s = Gate.xor a b
 
 full :: Bit -> Bit -> Bit -> Output
-full _ _ _ = Output O O
+full a b c' = Output c s  where
+    s = Gate.xor x c'
+    c = Gate.or  y z
+    x = Gate.xor a b
+    y = Gate.and x c'
+    z = Gate.and a b
