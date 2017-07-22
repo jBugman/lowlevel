@@ -1,7 +1,7 @@
 module Byte where
 
-import Data.Text (chunksOf)
-import Protolude
+import qualified Data.Text as T
+import           Protolude hiding (toList)
 
 import           Bit (Bit (..))
 import qualified Bit
@@ -22,20 +22,12 @@ toList (Byte b7 b6 b5 b4 b3 b2 b1 b0) = [b7 , b6 , b5 , b4 , b3 , b2 , b1 , b0]
 
 
 fromBitString :: Text -> Maybe Byte
-fromBitString s = do
-    bits <- sequence $ Bit.fromS <$> chunksOf 1 s
-    fromList bits
+fromBitString s = sequence (Bit.fromS <$> symbols) >>= fromList
+    where
+        symbols = T.chunksOf 1 s
 
 toBitString :: Byte -> Text
-toBitString (Byte b7 b6 b5 b4 b3 b2 b1 b0)
-    =  Bit.toS b7
-    <> Bit.toS b6
-    <> Bit.toS b5
-    <> Bit.toS b4
-    <> Bit.toS b3
-    <> Bit.toS b2
-    <> Bit.toS b1
-    <> Bit.toS b0
+toBitString = foldMap Bit.toS . toList
 
 
 setBit :: Int -> Bit -> Byte -> Maybe Byte
