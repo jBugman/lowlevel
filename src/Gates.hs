@@ -25,19 +25,27 @@ xor' I I = O
 
 
 -- Hardware --
+
 nand :: Bit -> Bit -> Bit
 nand I I = O
 nand _ _ = I
 
+
+-- NAND-based --
 and :: Bit -> Bit -> Bit
-and a b = nand c c
-    where c = nand a b
+and a b = nand c c  where
+    c = nand a b
 
 not :: Bit -> Bit
-not _ = O  -- FIXME
+not a = nand a a
 
 or :: Bit -> Bit -> Bit
-or _ _ = O  -- FIXME
+or a b = nand a' b' where
+    a' = nand a a
+    b' = nand b b
 
 xor :: Bit -> Bit -> Bit
-xor _ _ = O  -- FIXME
+xor a b = nand c d  where
+    c = nand a x
+    d = nand b x
+    x = nand a b
