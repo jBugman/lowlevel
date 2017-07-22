@@ -34,4 +34,10 @@ and a b = nand c c
     where c = nand a b
 
 not :: Bit -> Bit
-not a = O  -- FIXME
+not _ = O  -- FIXME
+
+or :: Bit -> Bit -> Bit
+or _ _ = O  -- FIXME
+
+xor :: Bit -> Bit -> Bit
+xor _ _ = O  -- FIXME

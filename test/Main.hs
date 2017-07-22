@@ -16,8 +16,13 @@ instance Monad m => Serial m Bit where
 
 main :: IO ()
 main = hspec $
+
   describe "Hardware gates" $ do
 
     it "and" $ property $ \x y -> Gates.and x y == Gates.and' x y
 
+    it "or"  $ property $ \x y -> Gates.or x y == Gates.or' x y
+
     it "not" $ property $ \x -> Gates.not x == Gates.not' x
+
+    it "xor" $ property $ \x y -> Gates.xor x y == Gates.xor' x y
