@@ -32,6 +32,8 @@ test-suite lowlevel-test
   build-depends:       base
                      , lowlevel
                      , protolude
+                     , hspec
+                     , hspec-smallcheck
                      , smallcheck
 
 source-repository head

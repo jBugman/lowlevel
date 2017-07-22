@@ -32,3 +32,6 @@ nand _ _ = I
 and :: Bit -> Bit -> Bit
 and a b = nand c c
     where c = nand a b
+
+not :: Bit -> Bit
+not a = O  -- FIXME
