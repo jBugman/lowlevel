@@ -3,25 +3,25 @@ module Gates where
 import Bits (Bit (..))
 
 
--- Logic --
+-- Truth tables --
 
-or' :: Bit -> Bit -> Bit
-or' O O = O
-or' _ _ = I
+orTT :: Bit -> Bit -> Bit
+orTT O O = O
+orTT _ _ = I
 
-and' :: Bit -> Bit -> Bit
-and' I I = I
-and' _ _ = O
+andTT :: Bit -> Bit -> Bit
+andTT I I = I
+andTT _ _ = O
 
-not' :: Bit -> Bit
-not' I = O
-not' O = I
+notTT :: Bit -> Bit
+notTT I = O
+notTT O = I
 
-xor' :: Bit -> Bit -> Bit
-xor' O O = O
-xor' O I = I
-xor' I O = I
-xor' I I = O
+xorTT :: Bit -> Bit -> Bit
+xorTT O O = O
+xorTT O I = I
+xorTT I O = I
+xorTT I I = O
 
 
 -- Hardware --
