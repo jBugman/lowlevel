@@ -1,3 +1,3 @@
 # lowlevel
 
-Some very lowloevel stuff for fun and non-profit.
+Some very lowlevel stuff for fun and non-profit.
