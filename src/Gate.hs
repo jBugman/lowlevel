@@ -1,6 +1,6 @@
-module Gates where
+module Gate where
 
-import Bits (Bit (..))
+import Bit (Bit (I, O))
 
 
 -- Truth tables --
