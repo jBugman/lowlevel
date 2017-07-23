@@ -17,6 +17,7 @@ library
   default-language:    Haskell2010
   default-extensions:  OverloadedStrings, NoImplicitPrelude
   exposed-modules:     Adder
+                     , ALU
                      , Arithmetic
                      , Bit
                      , Byte 
