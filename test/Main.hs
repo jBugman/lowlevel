@@ -7,9 +7,10 @@ import Test.Hspec.SmallCheck  (property)
 import Test.SmallCheck.Series (Serial, cons0, decDepth, series, (<~>), (\/))
 
 import qualified Adder
-import           Bit   (Bit (I, O))
+import           Bit    (Bit (I, O))
 import qualified Byte
 import qualified Gate
+import qualified Memory
 
 
 instance Monad m => Serial m Bit where
@@ -55,3 +56,9 @@ main = hspec $ do
     it "from to list" $ property $ \x -> Byte.fromList (Byte.toList x) == Just x
 
     it "from to bitstring" $ property $ \x -> Byte.fromBitString (Byte.toBitString x) == Just x
+
+    it "from to int" $ property $ \x -> Byte.fromInt (Byte.toInt x) == Just x
+
+  describe "Memory" $
+
+    it "RAM" $ property $ \i x -> Memory.get (Memory.set Memory.empty i x) i == x

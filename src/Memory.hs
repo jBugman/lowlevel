@@ -1,18 +1,32 @@
-module Memory where
+module Memory (get, set, empty) where
 
-import Data.Vector (Vector)
-import Protolude
+import qualified Data.Vector as V
+import           Protolude   hiding (empty, get)
 
 import           Bit  (Bit (..))
 import           Byte (Byte (..))
+import qualified Byte
 import qualified Gate
 
 
-newtype Cell = Cell Byte
+newtype Cell = Cell { unCell :: Byte }
     deriving (Eq, Show)
 
-type Mem = Vector Cell
+type Mem = V.Vector Cell
 
+type Address = Byte
+
+empty :: Mem
+empty = V.replicate 256 $ cell Byte.zero
+
+get :: Mem -> Address -> Byte
+get m a = fromMaybe Byte.zero $ unCell <$> m V.!? address a
+
+set :: Mem -> Address -> Byte -> Mem
+set m a x = V.update m $ V.singleton (address a , cell x)
+
+address :: Address -> Int
+address = Byte.toInt
 
 dFlipFlop :: Bit -> Bit -> Bit
 dFlipFlop clk d = q where
