@@ -24,12 +24,12 @@ library
                      , CPU
                      , Gate
                      , Logic
+                     , Memory
 -- other-modules:    
   build-depends:       base >= 4.7 && < 5
                      , protolude
                      , text
-                     , fixed-vector
-                     , mono-traversable
+                     , vector
 
 test-suite lowlevel-test
   type:                exitcode-stdio-1.0
