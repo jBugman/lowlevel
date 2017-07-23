@@ -13,3 +13,12 @@ fromS _   = Nothing
 toS :: Bit -> Text
 toS O = "0"
 toS I = "1"
+
+fromI :: Int -> Maybe Bit
+fromI 1 = Just I
+fromI 0 = Just O
+fromI _ = Nothing
+
+toI :: Bit -> Int
+toI O = 0
+toI I = 1
