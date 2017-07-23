@@ -1,5 +1,5 @@
 name:                lowlevel
-version:             0.1.3.0-SNAPSHOT
+version:             0.1.4.0-SNAPSHOT
 homepage:            https://github.com/jBugman/lowlevel#readme
 license:             MIT
 license-file:        LICENSE
@@ -21,6 +21,7 @@ library
                      , Arithmetic
                      , Bit
                      , Byte 
+                     , CPU
                      , Gate
                      , Logic
 -- other-modules:    
